@@ -8,7 +8,6 @@
 
 <script setup lang="ts">
 import { onMounted } from 'vue'
-import { io } from 'socket.io-client'
 import { useStream } from '~/composables'
 import { initRTCPeerConnection } from '~/utils'
 
@@ -25,10 +24,5 @@ onMounted(() => {
   initializeVideoStream()
 })
 
-const socket = io()
-onMounted(() => socket.connect())
-onUnmounted(() => socket.close())
-
 const message = ref('')
-socket.on('message', (data: string) => (message.value = data))
 </script>
