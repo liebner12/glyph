@@ -11,7 +11,7 @@ export const useStream = ({ localVideo, remoteVideo }: {localVideo: Ref<HTMLVide
       audio: true
     })
 
-    localStream.getTracks().forEach(track => peerConnection?.addTrack(track, localStream))
+    localStream.getTracks().forEach((track) => { console.log(track); peerConnection?.addTrack(track, localStream) })
     localVideo.value.srcObject = localStream
   }
 
@@ -20,18 +20,19 @@ export const useStream = ({ localVideo, remoteVideo }: {localVideo: Ref<HTMLVide
       return
     }
 
-    const remoteSteam = new MediaStream()
+    const remoteStream = new MediaStream()
 
     peerConnection.ontrack = (event) => {
+      console.log('ontrack')
       if (!remoteVideo.value) {
         return
       }
 
       event.streams[0].getTracks().forEach((track) => {
-        remoteSteam.addTrack(track)
+        remoteStream.addTrack(track)
       })
 
-      remoteVideo.value.srcObject = remoteSteam
+      remoteVideo.value.srcObject = remoteStream
     }
   }
 

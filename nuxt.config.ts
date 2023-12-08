@@ -8,6 +8,9 @@ export default defineNuxtConfig({
     'nuxt-icon',
     'nuxt-headlessui'
   ],
+  typescript: {
+    typeCheck: true
+  },
   css: ['~/assets/css/main.css'],
   postcss: {
     plugins: {
@@ -18,5 +21,8 @@ export default defineNuxtConfig({
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
     layoutTransition: { name: 'layout', mode: 'out-in' }
-  }
+  },
+  plugins: [
+    '~/plugins/firebase'
+  ]
 })
