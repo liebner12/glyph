@@ -5,7 +5,6 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/eslint-module',
     '@nuxt/image',
-    'nuxt-icon',
     'nuxt-headlessui'
   ],
   typescript: {

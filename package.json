@@ -31,7 +31,6 @@
     "@nuxt/image": "^1.0.0-rc.3",
     "@nuxt/ui": "^2.9.0",
     "@nuxtjs/eslint-module": "^4.1.0",
-    "firebase": "^10.7.0",
-    "nuxt-icon": "^0.5.0"
+    "firebase": "^10.7.0"
   }
 }
